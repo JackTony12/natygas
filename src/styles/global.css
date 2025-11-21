@@ -1,0 +1,56 @@
+@import "tailwindcss";
+@plugin "@midudev/tailwind-animations";
+
+
+@theme {
+  --breakpoint-tiny: 25rem;
+}
+:root{
+    --gray:#272727;
+    --yellow:#ffcc00;
+    --HoverBtn:#252525;
+    --cardBg:#FFE580;
+}
+.btnNavBar{
+    @apply text-sm bg-linear-to-r from-gray-800  to-gray-900 py-4 px-10 text-white font-[Poppins] cursor-pointer;
+
+}
+.btnNavBar{
+   clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%);
+}
+.heroButton{
+    @apply hover:scale-110 transform duration-75 text-gray-900 shadow-2xl py-1 px-5 md:px-6 md:py-2 font-bold text-sm md:text-xl bg-(--yellow) rounded-sm 
+}
+.heroBlur{
+   clip-path: polygon(0 50%, 100% 0, 100% 100%, 0% 100%);
+}
+.btn2{
+    @apply bg-(--yellow) py-2 px-4 rounded-sm text-(--gray) hover:scale-105 transition duration-75 cursor-pointer shadow-lg;
+}
+.servicesCard{
+    @apply flex justify-center items-center gap-5 flex-col p-5 rounded-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 border-2 border-amber-600 ;
+}
+#poligon{
+ clip-path: polygon(32% 29%, 100% 64%, 100% 99%, 0 100%, 0 65%);
+}
+#poligon2{
+   clip-path: polygon(83% 30%, 100% 64%, 100% 99%, 0 100%, 0 65%);
+}
+input[type="radio"]:checked + .radio-card {
+            border-color: #fbbf24;
+            background-color: #fef3c7;
+            box-shadow: 0 4px 6px -1px rgba(251, 191, 36, 0.1), 0 2px 4px -1px rgba(251, 191, 36, 0.06);
+}
+
+.ygradient{
+    @apply bg-linear-to-br from-amber-300 to-amber-400
+}
+.ygradient2{
+    @apply bg-linear-to-br from-[#ffd904] to-[#ffe695]
+}
+.ygradient3{
+    @apply bg-linear-to-r from-[#ffd904] to-[#e67a00]
+}
+.ggradient{
+    @apply bg-linear-to-r from-gray-700 to-gray-900
+}

@@ -1,0 +1,40 @@
+---
+import HookCards from "../hooks/hookCards"
+import Layout from "../layouts/Layout.astro"
+
+const wUrl =
+    "https://api.whatsapp.com/send?phone=99550232&text=Hola, mas informacion sobre los precios para negocios"
+---
+
+<Layout>
+    <section class='p-5'>
+        <div
+            class='py-5 px-3 mb-5 text-2xl font-bold text-(--gray) bg-amber-400 text-center rounded-t-xl'
+        >
+            <h2>Productos de NatyGas</h2>
+        </div>
+        <div>
+            <a
+                class='text-white bg-linear-to-r from-red-600 to-amber-500 px-2 py-1 block my-2 offer-banner'
+                href={wUrl}
+                target='_blank'
+                >Precios especiales para negocios y restaurantes — Cotice aquí
+            </a>
+        </div>
+        <HookCards client:load />
+        <a class='btn2' href='/'>Volver</a>
+    </section>
+</Layout>
+<style>
+    .offer-banner {
+        animation: pulse 1s infinite alternate ease;
+    }
+    @keyframes pulse {
+        0% {
+            transform: scale(1);
+        }
+        100% {
+            transform: scale(1.01);
+        }
+    }
+</style>

@@ -1,0 +1,50 @@
+---
+import Navbar from "./Navbar.astro"
+---
+
+<section>
+	<Navbar />
+	<div class='relative z-0'>
+		<picture class='w-full inline-block animate-slide-in-top'>
+			<source
+				media='(max-width: 640px)'
+				srcset='/images/bgHeroMovile.webp'
+			/>
+			<source media='(min-width: 768px)' srcset='/images/bgHeroPc.webp' />
+			<img
+				class='w-full h-[650px] object-cover brightness-40'
+				src='/images/bgHeroPc.webp'
+				alt='Tanque de gas LPG'
+			/>
+		</picture>
+		<div
+			class='h-[80%] flex flex-col items-center justify-center absolute left-0 top-[10%] px-3 animate-slide-in-top md:flex-row md:justify-start md:px-10 z-2'
+		>
+			<div class='w-full md:w-[70%]'>
+				<h1
+					class='text-2xl text-white font-bold sm:text-3xl md:text-4xl lg:text-6xl'
+				>
+					¡Tu cilindro de gas en minutos, sin moverte de casa!
+				</h1>
+				<p class='text-white lg:text-2xl mb-5'>
+					Servicio adomicilio | Llegamos en menos de 30 min |
+					Instalacion gratis
+				</p>
+
+				<div class='heroButton inline-block cursor-pointer'>
+					<a href='/products'>Ver productos</a>
+				</div>
+			</div>
+			<div
+				class='flex h-[70%] md:w-[40%] md:justify-center md:h-[80%] lg:h-full'
+			>
+				<img src='/images/owner.png' alt='owner' />
+			</div>
+		</div>
+		<div
+			class='heroBlur absolute left-0 bottom-0 w-full h-[30%] bg-white/20 backdrop-blur-[5px] z-1'
+		>
+		</div>
+	</div>
+</section>
+<script></script>
