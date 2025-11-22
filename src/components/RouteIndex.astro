@@ -1,0 +1,26 @@
+---
+const path = Astro.url.pathname
+
+const clean = path === "/" ? "/" : path.replace(/\/$/, "")
+
+let segments: string | any[] = []
+
+if (clean === "/") {
+    segments = []
+} else if (clean === "/products") {
+    segments = ["Products"]
+}
+---
+
+<nav class='text-lg mt-5 flex items-center gap-1 text-blue-400'>
+    <a href='/' class='hover:underline'>Home</a>
+
+    {
+        segments.length > 0 && (
+            <>
+                <span>/</span>
+                <span>{segments[0]}</span>
+            </>
+        )
+    }
+</nav>

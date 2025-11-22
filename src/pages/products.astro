@@ -1,6 +1,7 @@
 ---
 import HookCards from "../hooks/hookCards"
 import Layout from "../layouts/Layout.astro"
+import RouteIndex from "../components/RouteIndex.astro"
 
 const wUrl =
     "https://api.whatsapp.com/send?phone=99550232&text=Hola, mas informacion sobre los precios para negocios"
@@ -13,6 +14,7 @@ const wUrl =
         >
             <h2>Productos de NatyGas</h2>
         </div>
+        <RouteIndex />
         <div>
             <a
                 class='text-white bg-linear-to-r from-red-600 to-amber-500 px-2 py-1 block my-2 offer-banner'

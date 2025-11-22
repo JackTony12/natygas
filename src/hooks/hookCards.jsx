@@ -92,7 +92,7 @@ const HookCards = () => {
             {product.i_id === 'f02' && (<span className='absolute bg-red-500 px-2 py-1 text-white font-bold ml-2 mt-2 block rounded-sm border-2 border-yellow-200'>
               Nuevo
             </span>)}
-            <img onClick={()=> setShowImage(product.imgUrl)} className=' cursor-pointer w-50 object-cover rounded-l-xl rounded-lg ' src={product.imgUrl} alt={product.name} />
+            <img onClick={()=> setShowImage(product.imgUrl)} className=' cursor-pointer w-70 object-cover rounded-l-xl rounded-lg ' src={product.imgUrl} alt={product.name} />
             <div className='w-full  relative'>
               <h3 className=' text-xl sm:text-3xl text-(--gray) font-bold p-2'>
               {product.name}
@@ -106,7 +106,7 @@ const HookCards = () => {
               })}
               <span className='absolute bottom-2 left-1 font-extrabold text-(--gray) text-4xl sm:text-5xl'>
 
-              {product.price} <small className='text-xl'>Lps</small>
+              L {product.price}<small className='text-xl'>.00</small>
               </span>
               <button className='btn2 absolute right-4 bottom-5 text-sm font-bold sm:text-xl' onClick={() => sendData(index)}>
                 {product.requiereForm ? 'Solicitar' : 'Mas info'}
