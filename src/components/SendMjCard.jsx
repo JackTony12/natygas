@@ -1,8 +1,8 @@
 import {useState}from 'react'
+import ShowImgModal from '../hooks/showImgModal';
 
 
-
-const SendMjCard = ({sendDataMjs, closeModal, modal, selectProduct}) => {
+const SendMjCard = ({sendDataMjs, closeModal, modal, selectProduct,handleCloseImage, showImage,setShowImage}) => {
   const [formData, setFormData] = useState({
     sector: "",
     tipo: "",
@@ -19,11 +19,12 @@ const SendMjCard = ({sendDataMjs, closeModal, modal, selectProduct}) => {
     e.preventDefault();
     sendDataMjs({...formData, price: fixPrice})
   };
-  const fixPrice = selectProduct.i_id === 'f02' ? '1362' : formData.sector === 'La-paz' ? '263' : '270';
-  const infoText = fixPrice === '1362' ? 'Cilindro Nuevo': 'Cilindro 25Lbs'
-  
+  const fixPrice = selectProduct.i_id === 'f02' ? '1362' : selectProduct.i_id === 'f03' ? '1600' : formData.sector === 'La-paz' ? '262' : '270';
+  const infoText = fixPrice === '1362' ? 'Cilindro Nuevo': fixPrice === '1600'? 'Cilindro full accesorios': 'Cilindro 25Lbs'
+
  return (
   <>
+  {showImage !== '' && showImage !== null && <ShowImgModal showImage={showImage} handleCloseImage={handleCloseImage} />}
     <div className={`fixed inset-0 bg-black/40 backdrop-blur-sm flex items-center justify-center z-50 ${modal ? 'block' : 'hidden'}`}>
       <form
         onSubmit={handleSubmit}
@@ -48,7 +49,7 @@ const SendMjCard = ({sendDataMjs, closeModal, modal, selectProduct}) => {
               Seleccione el sector
             </label>
             <div className="grid grid-cols-3 gap-3">
-              {["La-paz", "Cane", "Yarumela"].map((sector) => (
+              {["La-paz", "Cane", "Yarumela","Lejamani"].map((sector) => (
                 <label key={sector} className="relative cursor-pointer">
                   <input
                     type="radio"
@@ -76,8 +77,9 @@ const SendMjCard = ({sendDataMjs, closeModal, modal, selectProduct}) => {
           </div>
 
           <div className="space-y-4">
-            <label className="text-sm font-medium text-gray-600 uppercase tracking-wider">
-              Tipo de cilindro
+            <label className="flex justify-between text-sm font-medium text-gray-600 uppercase tracking-wider">
+              <span>Tipo de cilindro</span>
+               <span className='cursor-pointer hover:text-amber-700' onClick={()=>setShowImage('/images/tipocilindro.webp')}><svg className='inline' stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 512 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M256 90c44.3 0 86 17.3 117.4 48.6C404.7 170 422 211.7 422 256s-17.3 86-48.6 117.4C342 404.7 300.3 422 256 422s-86-17.3-117.4-48.6C107.3 342 90 300.3 90 256s17.3-86 48.6-117.4C170 107.3 211.7 90 256 90m0-42C141.1 48 48 141.1 48 256s93.1 208 208 208 208-93.1 208-208S370.9 48 256 48z"></path><path d="M277 360h-42V235h42v125zm0-166h-42v-42h42v42z"></path></svg> Que tipo tengo?</span>
             </label>
             <div className="grid grid-cols-2 gap-3">
               {[

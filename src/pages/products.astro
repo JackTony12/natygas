@@ -8,7 +8,7 @@ const wUrl =
 ---
 
 <Layout>
-    <section class='p-5'>
+    <section class= md:p-5'>
         <div
             class='py-5 px-3 mb-5 text-2xl font-bold text-(--gray) bg-amber-400 text-center rounded-t-xl'
         >
@@ -29,14 +29,14 @@ const wUrl =
 </Layout>
 <style>
     .offer-banner {
-        animation: pulse 1s infinite alternate ease;
+        animation: pulse .6s infinite alternate ease;
     }
     @keyframes pulse {
         0% {
-            transform: scale(1);
+            transform: translateY(1);
         }
         100% {
-            transform: scale(1.01);
+            transform: translateY(4px);
         }
     }
 </style>

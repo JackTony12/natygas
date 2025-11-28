@@ -1,0 +1,99 @@
+---
+const sliderWidth = "w-[100%] "; // Ancho del slider
+const sliderHeight = "h-90"; // Alto del slider (h-64, h-80, h-96, etc.)
+
+// Array de imágenes
+const images = [
+  '/images/team.png',
+  '/images/team1.jpeg',
+  '/images/team2.png',
+];
+---
+
+<div class=" w-full flex items-center justify-center">
+  <div class={`${sliderWidth} relative`}>
+    <!-- Contenedor del slider -->
+    <div class={`${sliderHeight} relative overflow-hidden rounded-lg shadow-lg`}>
+      {images.map((img, index) => (
+        <img
+          src={img}
+          alt={`Image ${index + 1}`}
+          class={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ${index === 0 ? 'opacity-100' : 'opacity-0'}`}
+          data-slide={index}
+        />
+      ))}
+    </div>
+
+    <button
+      id="prev"
+      class="absolute left-4 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-gray-800 rounded-full p-2 transition-all shadow-md cursor-pointer "
+      aria-label="Anterior"
+    >
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+      </svg>
+    </button>
+
+    <button
+      id="next"
+      class="absolute right-4 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-gray-800 rounded-full p-2 transition-all shadow-md cursor-pointer"
+      aria-label="Siguiente"
+    >
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+      </svg>
+    </button>
+
+    <div class="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
+      {images.map((_, index) => (
+        <button
+          class={`w-2 h-2 rounded-full transition-all ${index === 0 ? 'bg-white w-8' : 'bg-white/50'}`}
+          data-indicator={index}
+          aria-label={`Ir a imagen ${index + 1}`}
+        />
+      ))}
+    </div>
+  </div>
+</div>
+
+
+<script>
+  let currentSlide = 0;
+  const slides = document.querySelectorAll('[data-slide]');
+  const indicators = document.querySelectorAll('[data-indicator]');
+  const totalSlides = slides.length;
+
+  function showSlide(index: number) {
+    slides.forEach((slide, i) => {
+      slide.classList.toggle('opacity-100', i === index);
+      slide.classList.toggle('opacity-0', i !== index);
+    });
+
+    indicators.forEach((indicator, i) => {
+      if (i === index) {
+        indicator.classList.add('bg-white', 'w-8');
+        indicator.classList.remove('bg-white/50');
+      } else {
+        indicator.classList.remove('bg-white', 'w-8');
+        indicator.classList.add('bg-white/50');
+      }
+    });
+  }
+
+  document.getElementById('prev')?.addEventListener('click', () => {
+    currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+    showSlide(currentSlide);
+  });
+
+  document.getElementById('next')?.addEventListener('click', () => {
+    currentSlide = (currentSlide + 1) % totalSlides;
+    showSlide(currentSlide);
+  });
+
+  indicators.forEach((indicator, index) => {
+    indicator.addEventListener('click', () => {
+      currentSlide = index;
+      showSlide(currentSlide);
+    });
+  });
+</script>
