@@ -54,3 +54,14 @@ input[type="radio"]:checked + .radio-card {
 .ggradient{
     @apply bg-linear-to-r from-gray-700 to-gray-900
 }
+.servicesCard:hover {
+  animation: wiggle 0.4s ease;
+}
+
+@keyframes wiggle {
+  0%   { transform: rotate(0deg); }
+  25%  { transform: rotate(3deg); }
+  50%  { transform: rotate(-3deg); }
+  75%  { transform: rotate(2deg); }
+  100% { transform: rotate(0deg); }
+}

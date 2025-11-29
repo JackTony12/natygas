@@ -21,7 +21,7 @@ const allProducts = [{
     name:'Cilindro nuevo lleno (full accesorios)',
     description:'Cilindro nuevo y lleno con mangueras y regulador incluidos',
     price:'1600',
-    imgUrl:'/images/cilindrofull.png',
+    imgUrl:'/images/cilindrofull.webp',
     details:['Envio gratis', 'Instalacion gratis','5 pies de manguera','Regulador incluido','Abrazadera'],
     requiereForm:true,
     i_id:'f03'

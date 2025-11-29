@@ -1,0 +1,54 @@
+
+---
+const cuentas = [
+  { banco: "Atlantida", numero: "2020133493" },
+  { banco: "Ficohsa", numero: "200010631725" },
+  { banco: "Credomatic", numero: "755860531" },
+  { banco: "Occidente", numero: "217020273743" }
+];
+---
+
+<div class="w-full  mx-auto  py-8">
+  <div class="bg-amber-400 rounded-2xl shadow-lg  overflow-hidden">
+    <div class="ygradient px-6 py-4  border-amber-600">
+      <h2 class="text-xl sm:text-2xl font-light text-gray-800 tracking-wide">
+        Números de cuenta para depósitos
+      </h2>
+    </div>
+    
+    <div class="p-6 sm:p-8">
+      <h3 class="">A nombre de: <strong class="text-black"> José Donato Palomo Vazquez</strong></h3>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
+        {cuentas.map((cuenta) => (
+          <div class="group relative bg-amber-100 hover:bg-amber-100 rounded-xl p-4 sm:p-5 border border-gray-200 transition-all duration-200 hover:shadow-md">
+            <!-- Banco -->
+            <p class="text-sm font-medium text-gray-500 uppercase tracking-wider mb-2">
+              {cuenta.banco}
+            </p>
+            
+            <!-- Número de cuenta -->
+            <p class="text-lg sm:text-xl font-mono font-semibold text-gray-800 break-all">
+              {cuenta.numero}
+            </p>
+
+            <button 
+              class=" cursor-pointer absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity duration-200 p-2 hover:bg-white rounded-lg"
+              onclick={`navigator.clipboard.writeText('${cuenta.numero}')`}
+              aria-label="Copiar número de cuenta"
+            >
+              <svg class="w-4 h-4 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+              </svg>
+            </button>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <div class="bg-amber-500 px-6 py-3  border-amber-200">
+      <p class="text-xs sm:text-sm text-white text-center">
+        Haga clic en cualquier número para copiar
+      </p>
+    </div>
+  </div>
+</div>

@@ -1,6 +1,7 @@
 ---
 import HookCards from "../hooks/hookCards"
 import Layout from "../layouts/Layout.astro"
+import BankN from "../components/BankN.astro"
 import RouteIndex from "../components/RouteIndex.astro"
 
 const wUrl =
@@ -23,6 +24,7 @@ const wUrl =
                 >Precios especiales para negocios y restaurantes — Cotice aquí
             </a>
         </div>
+        <BankN />
         <HookCards client:load />
         <a class='btn2' href='/'>Volver</a>
     </section>
