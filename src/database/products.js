@@ -1,6 +1,6 @@
 const allProducts = [{
-    name:'Cilindro 25lbr',
-    description:'Cilindro de 25lbr, duracion aproximada 2 meses',
+    name:'Cilindro 25lb',
+    description:'Cilindro de 25lb, duracion aproximada 2 meses',
     price:'262',
     imgUrl:'/images/cilindro01.webp',
     details:['Envio gratis', 'Instalacion gratis'],
@@ -8,7 +8,7 @@ const allProducts = [{
     ,i_id:'f01'
 
 },{
-    name:'Cilindro nuevo lleno 25lbr',
+    name:'Cilindro nuevo lleno 25lb',
     description:'Cilindro nuevo y lleno, no incluye mangueras ',
     price:'1362',
     imgUrl:'/images/cilindro01.webp',
@@ -85,8 +85,8 @@ const allProducts = [{
     ,i_id:'f09'
 
 },{
-    name:'Valvula de gas',
-    description:'Valvula para cilindros de sapo',
+    name:'Válvula de gas',
+    description:'Válvula para cilindros de sapo',
     price:'200',
     imgUrl:'/images/valvula01.webp',
     details:['Envio gratis', 'Excelente calidad','Anti-fugas'],
@@ -129,8 +129,8 @@ const allProducts = [{
     requiereForm:false
     ,i_id:'f14'
 },{
-    name:'Valvula',
-    description:'Valvula para cilindros',
+    name:'Válvula',
+    description:'Válvula para cilindros',
     price:'200',
     imgUrl:'/images/valvula02.webp',
     details:['Envio gratis', 'Excelente calidad','Anti-fugas'],

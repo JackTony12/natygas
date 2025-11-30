@@ -81,12 +81,12 @@ const SendMjCard = ({sendDataMjs, closeModal, modal, selectProduct,handleCloseIm
                 <span>Tipo de cilindro</span>
                 <span className='cursor-pointer hover:text-amber-700 flex items-center gap-1' onClick={()=>setShowImage('/images/tipocilindro.webp')}>
                   <svg className='inline w-3 h-3 xs:w-4 xs:h-4' stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M256 90c44.3 0 86 17.3 117.4 48.6C404.7 170 422 211.7 422 256s-17.3 86-48.6 117.4C342 404.7 300.3 422 256 422s-86-17.3-117.4-48.6C107.3 342 90 300.3 90 256s17.3-86 48.6-117.4C170 107.3 211.7 90 256 90m0-42C141.1 48 48 141.1 48 256s93.1 208 208 208 208-93.1 208-208S370.9 48 256 48z"></path><path d="M277 360h-42V235h42v125zm0-166h-42v-42h42v42z"></path></svg> 
-                  <span className=" xs:inline">¿Cual elijo?</span>
+                  <span className=" xs:inline">¿Cuál tengo?</span>
                 </span>
               </label>
               <div className="grid grid-cols-2 gap-2 xs:gap-2.5 sm:gap-3">
                 {[
-                  { value: "valvula", label: "De válvula" },
+                  { value: "valvula", label: "De valvula" },
                   { value: "normal", label: "Normal (sapo)" },
                 ].map((tipo) => (
                   <label key={tipo.value} className="relative cursor-pointer">
